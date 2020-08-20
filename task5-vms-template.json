@@ -111,6 +111,7 @@
         "nicName": "vm-nic-00",
         "publicIPAddressName": "public-vm-pip",
         "vmName": "vm-",
+        "publicIp1": "[resourceId('Microsoft.Network/publicIPAddresses', variables('publicIPAddressName'))]",
         "subnetRef1": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworkName'), parameters('subnet1Name'))]",
         "subnetRef2": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworkName'), parameters('subnet2Name'))]",
         "subnetRef3": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworkName'), parameters('subnet3Name'))]"
@@ -170,7 +171,7 @@
                 "id": "[variables(concat('subnetRef',copyIndex(1)))]"
               },
               "publicIPAddress": {
-                "id": "[if(equals(parameters('publicOrPrivate')[copyIndex(0)], 'Public'), variables('publicIPAddressName'), json('null') )]"
+                "id": "[if(equals(parameters('publicOrPrivate')[copyIndex(0)], 'Public'), variables('publicIP1'), json('null') )]"
               }
             }
           }
