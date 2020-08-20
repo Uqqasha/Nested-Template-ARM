@@ -96,6 +96,7 @@
         "defaultValue": [
             "public",
             "private",
+            "private",
             "private"
         ],
         "metadata": {
