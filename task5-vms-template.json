@@ -169,9 +169,8 @@
               "subnet": {
                 "id": "[variables(concat('subnetRef',copyIndex(1)))]"
               },
-              "condition": "[equals(parameters('publicOrPrivate')[copyIndex(0)], 'public')]",
               "publicIPAddress": {
-                "id": "[resourceId('Microsoft.Network/publicIPAddresses',concat(variables('publicIPAddressName'),copyIndex(1)))]"
+                "id": "[if(equals(parameters('publicOrPrivate')[copyIndex(0)], 'Public'), variables('publicIPAddressName'), json('null') )]"
               }
             }
           }
