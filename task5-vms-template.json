@@ -134,7 +134,7 @@
     },
     
     {
-      "condition": "[equals(parameters('publicOrPrivate')[copyIndex(1)], 'public')]",
+      "condition": "[equals(parameters('publicOrPrivate')[copyIndex(0)], 'public')]",
       "type": "Microsoft.Network/publicIPAddresses",
       "apiVersion": "2018-11-01",
       "name": "[concat(variables('publicIPAddressName'),copyIndex(1))]",
@@ -168,7 +168,7 @@
               "subnet": {
                 "id": "[variables(concat('subnetRef',copyIndex(1)))]"
               },
-              "condition": "[equals(parameters('publicOrPrivate')[copyIndex(1)], 'public')]",
+              "condition": "[equals(parameters('publicOrPrivate')[copyIndex(0)], 'public')]",
               "publicIPAddress": {
                 "id": "[resourceId('Microsoft.Network/publicIPAddresses',concat(variables('publicIPAddressName'),copyIndex(1)))]"
               }
