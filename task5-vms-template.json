@@ -94,7 +94,7 @@
     },
     
     "variables": {
-        "storageAccountName": "[concat(uniquestring(resourceGroup().id), 'Storage-')]",
+        "storageAccountName": "[concat(uniquestring(resourceGroup().id), 'storage')]",
         "nicName": "vm-nic-00",
         "publicIPAddressName": "public-vm-pip",
         "vmName": "vm-",
