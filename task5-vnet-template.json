@@ -1,0 +1,64 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+      
+      "location": {
+        "type": "string",
+        "defaultValue": "[resourceGroup().location]",
+        "metadata": {
+          "description": "Location for all resources."
+        }
+      }
+
+    },
+
+    "variables": {
+      "VirtualNetworkName": "VNet",
+      "Subnet1Name": "DMZ",
+      "Subnet2Name": "Private",
+      "Subnet3Name": "Data"
+    },
+
+    "resources": [
+      
+      {
+        "type": "Microsoft.Network/virtualNetworks",
+        "name": "[variables('VirtualNetworkName')]",
+        "apiVersion": "2020-05-01",
+        "location": "[parameters('location')]",
+        "comments": "Virtual network for overall solution",
+        "tags": {
+          "displayName": "Virtual Network - 001"
+        },
+        "properties": {
+          "addressSpace": {
+            "addressPrefixes": [
+              "10.0.0.0/16"
+            ]
+          },
+          
+          "subnets": [
+            {
+              "name": "[variables('Subnet1Name')]",
+              "properties": {
+                "addressPrefix": "10.0.1.0/24"
+              }
+            },
+            {
+              "name": "[variables('Subnet2Name')]",
+              "properties": {
+                "addressPrefix": "10.0.2.0/24"
+              }
+            },
+            {
+              "name": "[variables('Subnet3Name')]",
+              "properties": {
+                "addressPrefix": "10.0.3.0/24"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
