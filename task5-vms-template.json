@@ -174,7 +174,7 @@
               },
               "publicIPAddress": {
                 "condition": "[equals(parameters('publicOrPrivate')[copyIndex()], 'Public')]",
-                "id": "[resourceId('Microsoft.Network/publicIPAddresses', concat(variables('publicIPAddressName'), copyIndex()))]"
+                "id": "[resourceId('Microsoft.Network/publicIPAddresses', concat(variables('publicIPAddressName'), 0))]"
               }
             }
           }
