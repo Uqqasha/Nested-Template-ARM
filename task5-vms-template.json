@@ -160,8 +160,8 @@
       "name": "[concat(variables('nicName'),copyIndex(1))]",
       "location": "[parameters('location')]",
       "dependsOn": [
-        "publicIpCopy",
-        "[resourceId('Microsoft.Network/publicIPAddresses/', concat(variables('publicIPAddressName'), 0))]"
+        "publicIpCopy"
+        //"[resourceId('Microsoft.Network/publicIPAddresses/', concat(variables('publicIPAddressName'), 0))]"
       ],
       "properties": {
         "ipConfigurations": [
