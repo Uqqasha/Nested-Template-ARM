@@ -161,7 +161,7 @@
       "location": "[parameters('location')]",
       "dependsOn": [
         "publicIpCopy",
-        "[resourceId('Microsoft.Network/publicIPAddresses/', concat(variables('publicIPAddressName'),copyIndex()))]"
+        "[resourceId('Microsoft.Network/publicIPAddresses/', concat(variables('publicIPAddressName'), 0))]"
       ],
       "properties": {
         "ipConfigurations": [
