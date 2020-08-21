@@ -150,9 +150,7 @@
       },
       "copy": {
           "name": "publicIpCopy",
-          "count": "[parameters('vmCount')]",
-          "mode": "Serial",
-          "batchSize": 1
+          "count": "[parameters('vmCount')]"
       }
     },
 
