@@ -109,6 +109,7 @@
         "storageAccountName": "[concat(uniquestring(resourceGroup().id), 'storage')]",
         "nicName": "vm-nic-00",
         "publicIPAddressName": "public-vm-pip",
+        "publicIP": "public-vm-pip0",
         "vmName": "vm-",
         "publicIp1": {
             "id": "[resourceId('Microsoft.Network/publicIPAddresses', variables('publicIPAddressName'))]"
@@ -173,7 +174,7 @@
                 "id": "[variables(concat('subnetRef',copyIndex(1)))]"
               },
               "publicIPAddress": {
-                "id": "[if(equals(parameters('publicOrPrivate')[copyIndex()], 'Public'), concat(variables('publicIp1'),copyIndex()), json('null'))]"
+                "id": "[if(equals(parameters('publicOrPrivate')[copyIndex()], 'Public'), variables('publicIP'), json('null'))]"
               }
             }
           }
