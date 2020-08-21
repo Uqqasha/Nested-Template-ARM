@@ -138,7 +138,7 @@
     },
     
     {
-      "condition": "[equals(parameters('publicOrPrivate')[copyIndex(0)], 'public')]",
+      "condition": "[equals(parameters('publicOrPrivate')[copyIndex()], 'public')]",
       "type": "Microsoft.Network/publicIPAddresses",
       "apiVersion": "2018-11-01",
       "name": "[concat(variables('publicIPAddressName'),copyIndex(1))]",
@@ -166,14 +166,14 @@
       "properties": {
         "ipConfigurations": [
           {
-            "name": "[concat('ipconfig1',copyIndex(1))]",
+            "name": "[concat('ipconfig',copyIndex(1))]",
             "properties": {
               "privateIPAllocationMethod": "Dynamic",
               "subnet": {
                 "id": "[variables(concat('subnetRef',copyIndex(1)))]"
               },
               "publicIPAddress": {
-                "id": "[if(equals(parameters('publicOrPrivate')[copyIndex(0)], 'Public'), variables('publicIP1'), json('null') )]"
+                "id": "[if(equals(parameters('publicOrPrivate')[copyIndex()], 'Public'), variables('publicIP1'), json('null'))]"
               }
             }
           }
