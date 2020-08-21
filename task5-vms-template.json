@@ -94,9 +94,9 @@
     "publicOrPrivate": {
         "type": "array",
         "defaultValue": [
-            "public",
-            "private",
-            "private"
+            "Public",
+            "Private",
+            "Private"
         ],
         "metadata": {
             "description": "Determines whether to create public or private VM."
