@@ -137,7 +137,7 @@
     },
     
     {
-      "condition": "[equals(parameters('publicOrPrivate')[copyIndex()], 'public')]",
+      "condition": "[equals(parameters('publicOrPrivate')[copyIndex()], 'Public')]",
       "type": "Microsoft.Network/publicIPAddresses",
       "apiVersion": "2018-11-01",
       "name": "[concat(variables('publicIPAddressName'),copyIndex(1))]",
