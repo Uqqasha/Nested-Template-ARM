@@ -173,7 +173,8 @@
                 "id": "[variables(concat('subnetRef',copyIndex(1)))]"
               },
               "publicIPAddress": {
-                "id": "[if(equals(parameters('publicOrPrivate')[copyIndex()], 'Public'), concat(variables('publicIp1'),copyIndex()), json('null'))]"
+                "condition": "[equals(parameters('publicOrPrivate')[copyIndex()], 'Public')]",
+                "id": "[concat(variables('publicIp1'),copyIndex())]"
               }
             }
           }
