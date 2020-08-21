@@ -140,7 +140,7 @@
       "condition": "[equals(parameters('publicOrPrivate')[copyIndex()], 'Public')]",
       "type": "Microsoft.Network/publicIPAddresses",
       "apiVersion": "2018-11-01",
-      "name": "[concat(variables('publicIPAddressName'),copyIndex(1))]",
+      "name": "[variables('publicIPAddressName')]",
       "location": "[parameters('location')]",
       "properties": {
         "publicIPAllocationMethod": "Dynamic",
@@ -163,7 +163,7 @@
       "location": "[parameters('location')]",
       "dependsOn": [
         "publicIpCopy",
-        "[resourceId('Microsoft.Network/publicIPAddresses/',concat(variables('publicIPAddressName'),copyIndex(1)))]"
+        "[resourceId('Microsoft.Network/publicIPAddresses/', variables('publicIPAddressName'))]"
       ],
       "properties": {
         "ipConfigurations": [
